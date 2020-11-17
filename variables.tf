@@ -19,13 +19,13 @@ variable "resource_group" {
 }
 
 variable "storage_account_name" {
-  default = "ruddystorageaccountone"
+  default = "ruddystorageaccount"
 }
 
 variable "storage_container_name" {
-  default = "ruddycontainerone"
+  default = "ruddycontainer"
 }
 
 variable "storage_blob_name" {
-  default = "ruddystorageblobdemo"
+  default = "ruddystorageblob"
 }
