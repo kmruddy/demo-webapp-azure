@@ -1,3 +1,13 @@
+terraform {
+  backend "remote" {
+    organization = "TMM-Org"
+
+    workspaces {
+      name = "webapp"
+    }
+  }
+}
+
 provider "azurerm" {
   version = "2.22.0"
   features {}
