@@ -12,7 +12,7 @@ data "azurerm_resource_group" "rg"{
   name     = var.resource_group
 }
 
-resource "azurerm_storage_account" "temp_app" {
+resource "azurerm_storage_account" "webapp" {
   name                     = var.storage_account_name
   resource_group_name      = data.azurerm_resource_group.rg.name
   location                 = data.azurerm_resource_group.rg.location
@@ -20,15 +20,15 @@ resource "azurerm_storage_account" "temp_app" {
   account_replication_type = "LRS"
 }
 
-resource "azurerm_storage_container" "temp_app" {
+resource "azurerm_storage_container" "webapp" {
   name                  = var.storage_container_name
-  storage_account_name  = azurerm_storage_account.temp_app.name
+  storage_account_name  = azurerm_storage_account.webapp.name
   container_access_type = "private"
 }
 
-resource "azurerm_storage_blob" "temp_app" {
+resource "azurerm_storage_blob" "webapp" {
   name                   = var.storage_blob_name
-  storage_account_name   = azurerm_storage_account.temp_app.name
-  storage_container_name = azurerm_storage_container.temp_app.name
+  storage_account_name   = azurerm_storage_account.webapp.name
+  storage_container_name = azurerm_storage_container.webapp.name
   type                   = "Block"
 }
